@@ -1,8 +1,9 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Login from '../screens/login';
-import Characters from '../screens/characters';
+import Swipe from '../screens/Swipe';
+import History from '../screens/History';
+import Message from '../screens/Message';
 
 const Stack = createNativeStackNavigator();
 
@@ -11,14 +12,29 @@ const Routes = props => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Login"
-          component={Login}
-          options={{title: 'Connexion'}}
+          name="MainPage"
+          component={Swipe}
+          options={{
+            title: 'Swipe',
+            headerBackVisible: false,
+          }}
         />
         <Stack.Screen
-          name="Characters"
-          component={Characters}
-          options={{title: 'Personnages'}}
+          name="History"
+          component={History}
+          options={{
+            title: 'History',
+            headerBackVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="Message"
+          headerBackButtonMenuEnabled={false}
+          component={Message}
+          options={{
+            title: 'Message',
+            headerBackVisible: false,
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

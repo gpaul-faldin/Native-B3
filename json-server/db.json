@@ -1,0 +1,56 @@
+{
+  "like": [
+    {
+      "name": "A-Bomb",
+      "image": "https://www.superherodb.com/pictures2/portraits/10/100/10060.jpg",
+      "id": "d494eac0-ce7f-4947-b184-5a7bf59f2e3d"
+    },
+    {
+      "name": "Abe Sapien",
+      "image": "https://www.superherodb.com/pictures2/portraits/10/100/956.jpg",
+      "id": "60664fda-56f1-4644-84d6-16407e51fcd5"
+    },
+    {
+      "name": "Abin Sur",
+      "image": "https://www.superherodb.com/pictures2/portraits/10/100/1460.jpg",
+      "id": "cd895a95-751d-489d-b47a-914758ca7dd6"
+    },
+    {
+      "name": "Abomination",
+      "image": "https://www.superherodb.com/pictures2/portraits/10/100/1.jpg",
+      "id": "75711036-9c83-4908-9bbb-c012a7240d76"
+    },
+    {
+      "name": "Abraxas",
+      "image": "https://www.superherodb.com/pictures2/portraits/10/100/181.jpg",
+      "id": "e626cc4d-9db9-4158-a16d-ef0b120e1120"
+    },
+    {
+      "name": "Absorbing Man",
+      "image": "https://www.superherodb.com/pictures2/portraits/10/100/1448.jpg",
+      "id": "89da91b6-26f5-499d-8f0f-bbd43baf1977"
+    }
+  ],
+  "pass": [
+    {
+      "name": "Adam Monroe",
+      "image": "https://www.superherodb.com/pictures2/portraits/10/100/1026.jpg",
+      "id": "b315c3d1-cb95-4760-a6b2-f8ff75b7b466"
+    },
+    {
+      "name": "Adam Strange",
+      "image": "https://www.superherodb.com/pictures2/portraits/10/100/626.jpg",
+      "id": "1fef9a30-5d35-4ce9-b867-12ea34d3f3f6"
+    },
+    {
+      "name": "Agent 13",
+      "image": "https://www.superherodb.com/pictures2/portraits/10/100/167.jpg",
+      "id": "14472720-5cf9-42c2-baa3-974521f0caa1"
+    },
+    {
+      "name": "Agent Bob",
+      "image": "https://www.superherodb.com/pictures2/portraits/10/100/10255.jpg",
+      "id": "289b8301-7dab-466f-b29a-3ae7df4e7b9a"
+    }
+  ]
+}
