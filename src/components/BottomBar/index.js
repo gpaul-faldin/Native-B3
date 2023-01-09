@@ -31,7 +31,6 @@ const MainView = styled.SafeAreaView`
   justify-content: space-around;
   align-items: center;
 `;
-
 const IconButton = styled.TouchableOpacity`
   width: 70px;
   height: 70px;
@@ -40,7 +39,6 @@ const IconButton = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
 `;
-
 const styles = StyleSheet.create({
   icon: {
     fontSize: 45,
