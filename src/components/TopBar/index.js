@@ -36,14 +36,12 @@ const TopButton = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
 `;
-
 const MainView = styled.SafeAreaView`
   height: 60px;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
 `;
-
 const styles = StyleSheet.create({
   icon: {
     fontSize: 45,

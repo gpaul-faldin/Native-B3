@@ -6,8 +6,12 @@ import styled from 'styled-components';
 const ChatPage = ({info}) => {
   const [Message, SetMessage] = useState('');
   const [MessageFeed, setMessageFeed] = useState([]);
+  const [Answer, setAnswer] = useState();
 
-  async function UpdateMatch() {
+  const randomInt = max => {
+    return Math.floor(Math.random() * (max - 0 + 1) + 0);
+  };
+  const UpdateMatch = async () => {
     try {
       await axios({
         method: 'DELETE',
@@ -19,8 +23,18 @@ const ChatPage = ({info}) => {
         data: info,
       });
     } catch (e) {}
-  }
-
+  };
+  const GetAnswer = async () => {
+    try {
+      let answers = await axios({
+        method: 'GET',
+        url: `http://localhost:3000/answer`,
+      });
+      setAnswer(answers.data[randomInt(4)]);
+    } catch (e) {
+      console.log(e);
+    }
+  };
   const UpdateMessage = () => {
     if (MessageFeed.length === 0) {
       UpdateMatch();
@@ -28,7 +42,6 @@ const ChatPage = ({info}) => {
     setMessageFeed([...MessageFeed, {text: Message, sender: 'user'}]);
     SetMessage('');
   };
-
   const renderItem = ({item}) => {
     if (item.sender == 'bot') {
       return (
@@ -45,14 +58,15 @@ const ChatPage = ({info}) => {
   };
 
   useEffect(() => {
+    if (Answer != undefined)
+      setMessageFeed([...MessageFeed, {text: Answer, sender: 'bot'}]);
+  }, [Answer]);
+  useEffect(() => {
     if (
       MessageFeed.length > 0 &&
       MessageFeed[MessageFeed.length - 1].sender == 'user'
     ) {
-      setMessageFeed([
-        ...MessageFeed,
-        {text: 'écoute on est la hein', sender: 'bot'},
-      ]);
+      GetAnswer();
     }
   }, [MessageFeed]);
 

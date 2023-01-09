@@ -18,7 +18,7 @@ const Profils = ({navigation}) => {
   const [Match, setMatch] = useState(false);
   const [MatchInfo, setMatchInfo] = useState();
 
-  async function FetchUsers() {
+  const FetchUsers = async () => {
     var PromiseArr = [];
 
     try {
@@ -53,9 +53,8 @@ const Profils = ({navigation}) => {
       }
       setUsers(preUsers);
     } catch (e) {}
-  }
-
-  async function SaveChoice(User, type) {
+  };
+  const SaveChoice = async (User, type) => {
     User.id = uuid.v4();
     try {
       await axios({
@@ -64,11 +63,10 @@ const Profils = ({navigation}) => {
         data: User,
       });
     } catch (e) {}
-  }
-
-  function randomInt() {
+  };
+  const randomInt = () => {
     return Math.floor(Math.random() * (3 - 0 + 1) + 0);
-  }
+  };
 
   useEffect(() => {
     if (SwipeCount == 19) {

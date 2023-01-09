@@ -20,7 +20,6 @@ const MessageList = ({navigation}) => {
         console.log(error);
       });
   };
-
   const renderMatch = ({item}) => {
     return (
       <ListMatch
@@ -36,7 +35,6 @@ const MessageList = ({navigation}) => {
       </ListMatch>
     );
   };
-
   const renderTalked = ({item}) => {
     return (
       <ListTalked

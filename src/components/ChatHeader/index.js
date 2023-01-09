@@ -6,7 +6,6 @@ const ChatHeader = ({info}) => {
   return (
     <Flex>
       <Image style={{width: 50, height: 50}} source={info.image} />
-      {/* <Text>{info.name}</Text> */}
     </Flex>
   );
 };
