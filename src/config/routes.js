@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Swipe from '../screens/Swipe';
 import History from '../screens/History';
 import Message from '../screens/Message';
+import Chat from '../screens/Chat';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +35,13 @@ const Routes = props => {
           options={{
             title: 'Message',
             headerBackVisible: false,
+          }}
+        />
+        <Stack.Screen
+          name="Chat"
+          component={Chat}
+          options={{
+            title: 'Test',
           }}
         />
       </Stack.Navigator>

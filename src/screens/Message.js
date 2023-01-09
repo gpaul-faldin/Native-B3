@@ -1,12 +1,13 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
+import MessageList from '../components/MessageList';
 import TopBar from '../components/TopBar';
 
 const Swipe = ({navigation}) => {
   return (
     <View>
       <TopBar navigation={navigation} />
-      <Text>{'Ca Message ici'}</Text>
+      <MessageList navigation={navigation} />
     </View>
   );
 };

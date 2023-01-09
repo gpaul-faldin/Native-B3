@@ -8,7 +8,6 @@ const HistoryList = () => {
   const [Profiles, setProfiles] = useState([]);
 
   const renderItem = ({item}) => {
-    console.log('HERE');
     return (
       <SafeAreaView>
         <Text>{item.name}</Text>

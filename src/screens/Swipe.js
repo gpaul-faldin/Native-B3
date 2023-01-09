@@ -7,7 +7,7 @@ const Swipe = ({navigation}) => {
   return (
     <View>
       <TopBar navigation={navigation} />
-      <Profils />
+      <Profils navigation={navigation} />
     </View>
   );
 };

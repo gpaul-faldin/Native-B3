@@ -1,17 +1,22 @@
 import React, {useEffect, useState} from 'react';
-import {SafeAreaView, Text} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 import axios from 'axios';
 import RenderItem from '../ShowProfile';
-import Swipeable from 'react-native-gesture-handler/Swipeable';
 import BottomBar from '../BottomBar';
+import MatchModal from '../MatchModal';
 import uuid from 'react-native-uuid';
+import Swipeable from 'react-native-gesture-handler/Swipeable';
+import {RectButton} from 'react-native-gesture-handler';
+import {BlurView} from '@react-native-community/blur';
 
-const Profils = () => {
+const Profils = ({navigation}) => {
   const [Users, setUsers] = useState([]);
   const [Offset, setOffset] = useState(0);
   const [SwipeCount, setSwipeCount] = useState(0);
   const [Like, setLike] = useState(false);
   const [Pass, setPass] = useState(false);
+  const [Match, setMatch] = useState(false);
+  const [MatchInfo, setMatchInfo] = useState();
 
   async function FetchUsers() {
     var PromiseArr = [];
@@ -52,11 +57,17 @@ const Profils = () => {
 
   async function SaveChoice(User, type) {
     User.id = uuid.v4();
-    await axios({
-      method: 'POST',
-      url: `http://localhost:3000/${type}`,
-      data: User,
-    });
+    try {
+      await axios({
+        method: 'POST',
+        url: `http://localhost:3000/${type}`,
+        data: User,
+      });
+    } catch (e) {}
+  }
+
+  function randomInt() {
+    return Math.floor(Math.random() * (3 - 0 + 1) + 0);
   }
 
   useEffect(() => {
@@ -72,6 +83,11 @@ const Profils = () => {
   useEffect(() => {
     if (Like == true) {
       SaveChoice(Users[SwipeCount - 1], 'like');
+      if (randomInt() === randomInt()) {
+        SaveChoice(Users[SwipeCount - 1], 'match');
+        setMatchInfo(Users[SwipeCount - 1]);
+        setMatch(true);
+      }
       setLike(false);
     }
     if (Pass == true) {
@@ -92,8 +108,35 @@ const Profils = () => {
         setPass={setPass}
         setSwipeCount={setSwipeCount}
       />
+      {Match == true ? (
+        <BlurView
+          style={styles.absolute}
+          blurType="dark"
+          blurAmount={35}
+          reducedTransparencyFallbackColor="white"
+        />
+      ) : null}
+      {Match == true ? (
+        <MatchModal
+          match={Match}
+          setMatch={setMatch}
+          info={MatchInfo}
+          setInfo={setMatchInfo}
+          navigation={navigation}
+        />
+      ) : null}
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  absolute: {
+    position: 'absolute',
+    top: -60,
+    left: 0,
+    bottom: -40,
+    right: 0,
+  },
+});
 
 export default Profils;
